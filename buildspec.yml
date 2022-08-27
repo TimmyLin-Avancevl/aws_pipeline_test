@@ -10,10 +10,17 @@ phases:
   build:
     commands:
       - ls -al
-      - python test.py $CODEBUILD_SOURCE_VERSION_SourceArtifact1
+      - python test.py
       - cp $CODEBUILD_SRC_DIR_SourceArtifact2/* .
       - ls -al
-      - python test2.py $CODEBUILD_SOURCE_VERSION_SourceArtifact2
+      - python test2.py
+      - echo $SOURCE1_DATE
+      - echo $SOURCE1_BH
+      - echo $SOURCE1_CMTID
+      - echo $SOURCE1_CMTMSG
+      - echo $SOURCE1_CMTDATE
+      - echo $SOURCE1_CMTURL
+      - echo $SOURCE1_REPO
       - echo $AWS_DEFAULT_REGION
       - echo $AWS_REGION
       - echo $CODEBUILD_BATCH_BUILD_IDENTIFIER

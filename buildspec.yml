@@ -10,8 +10,7 @@ phases:
   build:
     commands:
       - ls -al
-      - cd $CODEBUILD_SRC_DIR_SourceArtifact1
-      - ls -al
       - python test.py $SOURCE1BH
       - cd $CODEBUILD_SRC_DIR_SourceArtifact2
+      - ls -al
       - python test2.py $SOURCE2BH

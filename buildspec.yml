@@ -18,8 +18,7 @@ phases:
       - echo $SOURCE1_BH
       - echo $SOURCE1_CMTID
       - echo $SOURCE1_CMTMSG
-      - echo $SOURCE1_CMTDATE
-      - echo $SOURCE1_CMTURL
+      - echo $SOURCE1_CON
       - echo $SOURCE1_REPO
       - echo $AWS_DEFAULT_REGION
       - echo $AWS_REGION

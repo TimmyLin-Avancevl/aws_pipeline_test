@@ -1,16 +1,16 @@
 version: 0.2
 
-env:
-  shell: /bin/bash
-  variables:
-    SOURCE1BH: $CODEBUILD_SOURCE_VERSION_SourceArtifact1
-    SOURCE2BH: $CODEBUILD_SOURCE_VERSION_SourceArtifact2
+# env:
+#   shell: /bin/bash
+#   variables:
+#     SOURCE1BH: $CODEBUILD_SOURCE_VERSION_SourceArtifact1
+#     SOURCE2BH: $CODEBUILD_SOURCE_VERSION_SourceArtifact2
 
 phases:
   build:
     commands:
       - ls -al
-      - python test.py $SOURCE1BH
-      - cd $CODEBUILD_SRC_DIR_SourceArtifact2
+      - python test.py $CODEBUILD_SOURCE_VERSION_SourceArtifact1
+      - cp $CODEBUILD_SRC_DIR_SourceArtifact2/* .
       - ls -al
-      - python test2.py $SOURCE2BH
+      - python test2.py $CODEBUILD_SOURCE_VERSION_SourceArtifact2

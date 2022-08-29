@@ -11,6 +11,9 @@ phases:
     commands:
       - ls -al
       - python test.py
+      - cd $CODEBUILD_SRC_DIR_SourceArtifact2
+      - ls -al
+      - cd $CODEBUILD_SRC_DIR
       - cp $CODEBUILD_SRC_DIR_SourceArtifact2/* .
       - ls -al
       - python test2.py

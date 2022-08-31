@@ -3,17 +3,23 @@ version: 0.2
 env:
   shell: /bin/bash
   variables:
-    VAR1: CustomVariable1
+    ENV_VAR: DEV
   exported-variables:
     - VAR1
     - VAR2
 
 phases:
+  pre-build:
+    commands:
+      - cd $CODEBUILD_SRC_DIR_SourceArtifact2
+      - ls -al
   build:
     commands:
-      - ls -al
+      - echo $ENV_VAR
+      - ls -al  # Primary source
+      - cd $CODEBUILD_SRC_DIR
       - python test.py
-      - cd $CODEBUILD_SRC_DIR_SourceArtifact2
+      - cd $CODEBUILD_SRC_DIR_SourceArtifact2  # Access to 2nd source
       - ls -al
       - cd $CODEBUILD_SRC_DIR
       - cp $CODEBUILD_SRC_DIR_SourceArtifact2/* .
